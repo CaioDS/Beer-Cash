@@ -1,6 +1,12 @@
 import 'package:flutter/material.dart';
 import 'widgets/input_with_label.dart';
 import 'screens/resultado.dart';
+import 'package:beer_cash/controller/contas.controller.dart';
+import 'package:beer_cash/model/contas.model.dart';
+import 'package:flutter_mobx/flutter_mobx.dart';
+import 'package:provider/provider.dart';
+
+import 'app_status.dart';
 
 void main() {
   runApp(App());
@@ -33,9 +39,13 @@ class _HomePageState extends State<HomePage> {
   final _tTotal = TextEditingController();
   final _tPorcentagem = TextEditingController();
   var _formKey = GlobalKey<FormState>();
+  ContasController _controller = null;
 
   @override
   Widget build(BuildContext context) {
+
+    _controller = Provider.of<ContasController>(context);
+
     return Scaffold(
       backgroundColor: Color(0xffffe159),
       appBar: AppBar(
@@ -175,6 +185,8 @@ class _HomePageState extends State<HomePage> {
 
       double valor_garcom = total*(porcentagem/100);
       double valor_pessoa = (total+valor_garcom) / pessoas;
+
+      _controller.create(Conta(valor: total, data: DateTime.now().toString()));
       
       Navigator.push(
         context, MaterialPageRoute(builder: (context) => ScreenResultado(resultado: valor_pessoa, valor_porcentagem: valor_garcom, total: total,))

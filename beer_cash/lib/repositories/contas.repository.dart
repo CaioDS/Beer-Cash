@@ -2,6 +2,7 @@ import 'package:beer_cash/model/contas.model.dart';
 import 'package:beer_cash/DAO/contas.dao.dart';
 import 'package:beer_cash/repositories/contas.database.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:floor/floor.dart';
 
 class ContaRepository {
   static ContaRepository _instance;

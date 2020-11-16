@@ -3,7 +3,7 @@ import 'package:beer_cash/repositories/contas.repository.dart';
 import 'package:beer_cash/model/contas.model.dart';
 
 import '../app_status.dart';
-part 'conta.controller.g.dart';
+part 'contas.controller.g.dart';
 
 class ContasController = _ContasController with _$ContasController;
 
