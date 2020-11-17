@@ -1,6 +1,7 @@
 
 
 import 'package:beer_cash/controller/contas.controller.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:provider/provider.dart';
@@ -62,36 +63,32 @@ class _HistoricoListViewState extends State<HistoricoPage> {
             children: <Widget>[
               Flexible(
                 fit: FlexFit.loose,
-                child: Card(
-                  elevation: 10,
-                  color: Colors.white,
-                  shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.all(Radius.circular(20)),
-                  ),
-                  child: SizedBox(
-                    width: 300,
-                    height: 100,
+                child: Container(
+                  child: Padding(
+                    padding: EdgeInsets.only(top: 20),
                     child: Container(
                       child: ListView(
                         children: [
                           for(int i = 0; i < _controller.list.length; i++)
-                            Card(
-                              elevation: 10,
-                              color: Colors.white,
-                              shape: RoundedRectangleBorder(
-                                borderRadius: BorderRadius.all(Radius.circular(20)),
-                              ),
-                              child: SizedBox(
-                                width: 300,
-                                height: 100,
+                            Container(
+                              width: 200,
+                              height: 100,
+                              //height: 100,
+                              child: Card(
+                                elevation: 2,
+                                color: Colors.white,
+                                shape: RoundedRectangleBorder(
+                                  borderRadius: BorderRadius.all(Radius.circular(20)),
+                                ),
                                 child: Row(
                                   children: [
-                                    Text(_controller.list[i].id.toString()+' - '+_controller.list[i].data),
+                                    Text('   '+(i+1).toString()+' - Valor: '+_controller.list[i].valor.toString(), style: TextStyle(
+                                        fontSize: 20, fontWeight: FontWeight.bold
+                                    ),),
                                   ],
                                 ),
-                              ),
-                            )
-
+                              ) ,
+                            ),
                         ],
                       ),
                     ),

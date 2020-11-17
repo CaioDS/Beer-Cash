@@ -101,11 +101,12 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.only(top: 150),
                     child: Container(
                       width: 250,
-                      child: FloatingActionButton(
+                      color: Colors.white,
+                      child: FlatButton(
                         child: Text("Nova Conta",
                           style: TextStyle(color: Colors.black, fontSize: 18),
                         ),
-                        backgroundColor: Colors.white,
+                        //backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(40),
                         ),
@@ -118,16 +119,17 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.only(top: 50),
                     child: Container(
                       width: 250,
-                      child: FloatingActionButton(
+                      color: Colors.white,
+                      child: FlatButton(
                         child: Text("Histórico de Contas",
                           style: TextStyle(color: Colors.black, fontSize: 18),
                         ),
-                        backgroundColor: Colors.white,
                         shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(40),
+                          borderRadius: BorderRadius.circular(80),
                         ),
-                        onPressed: () => Navigator.push(
-                            context, MaterialPageRoute(builder: (context) => HistoricoPage())),
+                        onPressed: () => Navigator.of(context, rootNavigator: true).push(MaterialPageRoute(builder: (context) => HistoricoPage())),
+                        /*onPressed: () => Navigator.push(
+                            context, MaterialPageRoute(builder: (context) => HistoricoPage())),*/
                       ),
                     ),
                   ),
